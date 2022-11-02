@@ -11,6 +11,8 @@
 - [ ] GIF Walkthrough: In this gif I first show the url with the embedded alert on the create a post page to show what had to be typed to exploit this vulnerability. Next I show what the page would look like for every user that visits the website. From there you can see the recent post and I interact with a normal post to show a noraml repsonse. Then I interact with the exploit to show that the message will pop up when clicked on. 
 - [ ] Steps to recreate: To exploit this vulnerability I first had to make sure I had access to an authenticated users account that has contributor privileges, so I used the admin account. From there I went to create a post and set it to text editor. The post was named YouTube that appeared to contain a legit YouTube link, but it was actually not legit and contained an alert message for anyone that ended up clicking on the link. This message was able to go undetected because of a flaw with embedding in the YouTube URL. Any user who clicks the link on that page now gets a message informing them that XSS has just occurred.
 - [ ] Affected source code: wpdistillery.vm/wp-content/post.php
+<img src="CVE-2017-6817 YouTube URL XSS.gif" alt="URL XSS">
+
 
   
 ### 2. (Required) Vulnerability Name or ID  CVE-2015-5623 XSS with Post
