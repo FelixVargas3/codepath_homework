@@ -22,7 +22,8 @@
 - [ ] GIF Walkthrough: In this gif I show the post from the admin point of view to show the HTML that was used to execute this attack. Next I show the webpage and interact with the post again. The site has numerous post that have been made, and first I interact with a normal post to show a normal response. Next I intereact with the post that has html and a link to clink on. In this exploit the user actually has to click on the link that is in the post to get the alert message to pop up. 
 - [ ] Steps to recreate: To exploit this vulnerability we first have to login to an account that has the ability to create post on the site, I used the admin account. From there we went to create a post and set the editor option to text. In the actual post text box I inserted the HTML that contained javascript and set it to look like a link that the user could click on. That is why I set the code to execute once a user clicked on the link. The code contains an alert message that will popup once any user decides to click on the link. Similar to the XSS with the url, this post will show up with all the other post on the main page and won’t execute until interacted with. 
 - [ ] Affected source code: wpdistillery.vm/wp-content/post.php
- 
+<img src="CVE-2015-5623_XSS.gif" alt="XSS">
+
 
 ### 3. (Required) Vulnerability Name or ID CVE-2015-3440 XSS
 
@@ -31,7 +32,8 @@
 - [ ] GIF Walkthrough: In this gif I show a portion of the long message that has to be used in the reply to be able to get the reply truncated and be able to execute the attack. Then I go to the front page of the site again to show the comments that any user can see. From there I click on the thread that contains the malicous reply and see that the script is executed and an alert message pops up. 
 - [ ] Steps to recreate: To exploit this vulnerability I went to the comments on the Wordpress website, and replied to the first one. I was not logged in and I had to enter some information about myself so the site can know who is adding to their content. After putting in information about who is replying, I left my reply that contained the XSS attack. The reply is made up of the javascript that will trigger an alert message and a lot of random content too make sure my response is truncated because it is too long. Then I send the reply and wait for an authenticated user with privileges to say the reply is okay to be displayed publicly. So I validate the reply from the admin account and visit the comments of the website. As soon as a user clicks the threat that includes the response with the script, they are given an alert message that tells them XSS has occurred
 - [ ] Affected source code:wpdistillery.vm/wp-content/comments.php
-  
+<img src="CVE-2015-3440 XSS.gif" alt="3440 XSS">
+
 
 ### 4. (Optional) Vulnerability Name or ID User Enumeration 
 
@@ -40,6 +42,7 @@
 - [ ] GIF Walkthrough: In this gif I show an attacker attempting to login with default credentials to see if they can get lucky or learn some valuable information. And after entering a correct default username, the site returned some valuable infomation for the attacker. The system would tell users when they have entered the correct username, which allows attackers to enumerate users and gain info. 
 - [ ] Steps to recreate: I used the admin account to create some new and random accounts with very basic usernames and passwords. Then when an attacker tries to attack the site they can continue to try common login names until the website tells the attacker that they have got a correct username. The website should only return that the login credentials were wrong and that the user needs to try again. Confirming that the user has entered the correct username makes conducting attacks easier for hackers and leaves your site more vulnerable.
 - [ ] Affected source code:  http://wpdistillery.vm-login.php
+<img src="userENUMERATION.gif" alt="enumeration">
 
 
 ### 5. (Optional) Vulnerability Name or ID CVE-2015-4133 Reflex Gallery Plugin
@@ -49,7 +52,9 @@
 - [ ] GIF Walkthrough: I included two gifs related to this exploit, one is a before and after and the other is me accessing and interacting with the files and directories of the website from my kali machine. With this exploit I was able to make see the content of this webpage and delete or add files, so I removed the images that had been added with the reflex gallery plugin. I have a gif with a before and after of the site to show that the picture was deleted. And the other gif shows me interacting with the files to show I had access from my kalli machine and was able to remove files through shell. 
 - [ ] Steps to recreate: I used the metasploit framework to look up known exploits that may be able to attack the website with the reflex gallery plugin. Next I specify the target website and myself as the local host, this is so I am sure I get a shell that allows me to access the website. The tool then does all the heavy lifting and returns a shell that is linked to the target site. Once the exploit has been taken advantage of, I was able to see the files and directories for the web server. I was also able to change directories and views the content in each file in the directories. Lastly I was able to use the ‘rm’  command to remove the images I added with the reflex gallery plugin that creates this exploit.
 - [ ] Affected source code:http://wpdistillery.vm/wp-content/plugins/reflex-gallery/admin/scripts/FileUploader/php.php
- 
+<img src="reflexSHELL.gif" alt="reflex"> 
+
+<img src="Before_After_reflex.gif" alt="reflexP.2"> 
 
 
 ## Resources
